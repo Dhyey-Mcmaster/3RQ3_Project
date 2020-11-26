@@ -2,10 +2,11 @@ from dinnerisserved.email import Email
 from dinnerisserved.passwor import Password
 from dinnerisserved.reservation import Reservation
 from dinnerisserved.createaccount import CreateAccount
-
+from dinnerisserved.table import Table
 
 #Requirement: Account creation
-#Account creation is failed for couple of reasons like email-id already taken, web-application is currently under maintenance
+
+#Checks the email and password fields for account creation process
 def test_email():
     email = Email()
 
@@ -16,9 +17,10 @@ def test_password():
 
     assert len(password) == 1, "Password cannot be empty"
 
+#Account creation is failed for couple of reasons like email-id already taken, web-application is currently under maintenance
 def test_account():
     account = CreateAccount()
-    check_account = account.CheckAccount(0)
+    check_account = account.CheckAccount(1)
 
     assert check_account == 1, "Account not created"
 
@@ -26,9 +28,18 @@ def test_account():
 #Login failed for errors like email-id is not registered or password is incorrect
 def test_login():
     login = CreateAccount()
-    check_login = login.CheckLogin(0)
+    check_login = login.CheckLogin(1)
 
     assert check_login == 1, "Login Failed"
+
+#Requirement: Reservation for table
+
+#Cheks if the table is available for booking or not
+def test_table_available():
+    table = Table()
+    check_table_available = table.check_table_number(0)
+
+    assert check_table_available == 1, "Table not available check next table"
 
 def test_reservation_five_table():
    reservation = Reservation()
