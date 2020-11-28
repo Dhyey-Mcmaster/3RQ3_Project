@@ -7,6 +7,12 @@ from dinnerisserved.table import Table
 #Requirement: Account creation
 
 #Checks the email and password fields for account creation process
+def test_create_account_phone_email():
+    account = CreateAccount()
+    account_phone_email = account.Create_using_phone_email()
+
+    assert account_phone_email == 1, "Try creating account using email-id"
+
 def test_email():
     email = Email()
 
@@ -16,6 +22,18 @@ def test_password():
     password = Password()
 
     assert len(password) == 1, "Password cannot be empty"
+
+def test_email_available():
+    email = Email()
+    check_email_available = email.check_email_available()
+
+    assert check_email_available == 1, "Email not available"
+
+def test_password_strength():
+    password = Password()
+    check_password_strength = password.check_password_strength()
+
+    assert check_password_strength == 1, "Password is too weak"
 
 #Account creation is failed for couple of reasons like email-id already taken, web-application is currently under maintenance
 def test_account():
@@ -53,7 +71,13 @@ def test_reservation_one_table():
 
     assert check_reservation == 1, "One table should be booked"
 
-def test_confirm_reseravation():
+def test_reservation_details():
+    reserve_detail = Reservation()
+    check_details = reserve_detail.Reservation_details()
+
+    assert check_details == 1, "You can not view the reservation details"
+
+def test_confirm_reservation():
     reservation = Reservation()
     confirm_reserve = reservation.Confirm_Reservation(1)
 
