@@ -4,8 +4,5 @@ class CreateAccount:
     def CheckAccount(self, num_account):
        return None                      #will be implemented in future
 
-    def CheckLogin(self, num_login):
-        return None                     #will be implemented in future
-
-    def Create_using_phone_email(self):
+    def Create_using_phone_email(self): #Will be implemented in future
         return None
