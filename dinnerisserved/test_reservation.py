@@ -8,7 +8,6 @@ from dinnerisserved.login import Login
 
 
 # Requirement: Account creation
-
 # Checks the email and password fields for account creation process
 def test_create_account_phone():
     account = CreateAccount()
@@ -122,3 +121,10 @@ def test_payment_update():
     payment_set = setting.payment_settings(True)
 
     assert payment_set, "Payment cannot be updated"
+
+#Requiremnet change password: This will allow the customer to change the password, only if the customer is logged-in
+def test_change_password():
+    change_password = Password()
+    test_change_pass = change_password.change_password(1)
+
+    assert test_change_password == 1, "Password is not updated"

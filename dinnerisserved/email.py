@@ -8,4 +8,3 @@ class Email:
 
     def check_email_available(self):
         return None                 #will be implemented in future
-
